@@ -4,8 +4,8 @@
 
 /* ---- EDIT ME ---------------------------------------------- */
 var CONFIG = {
-  email: 'somodioluz@gmail.com',                    // shown in the footer; the buttons open an email to this address
-  featuredWorksUrl: '../../luz-featured-works/index.html' // where the Featured Works site lives
+  email: 'your-email@example.com',                    // shown in the footer; the buttons open an email to this address
+  featuredWorksUrl: '../luz-featured-works/index.html' // where the Featured Works site lives
 };
 /* ----------------------------------------------------------- */
 
