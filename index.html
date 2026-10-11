@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="luz-portfolio/css/style.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
   <script>
     /* Set the theme before first paint so there is no flash */
     (function () {
@@ -26,14 +27,14 @@
   <!-- ============ NAV ============ -->
   <header class="nav" id="nav">
     <div class="wrap nav__inner">
-      <a class="nav__logo" href="#top" aria-label="Luz Somodio — Home">
-        <img src="luz-portfolio/assets/logo-green.png" alt="Luz Somodio, Virtual Assistant" width="533" height="172">
+      <a class="nav__logo" href="#top" aria-label="Luz Somodio — home">
+        <img src="assets/logo-green.png" alt="Luz Somodio, Virtual Assistant" width="533" height="172">
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
-        <a href="#works">Featured Works</a>
+        <a href="featured-works.html">Featured Works</a>
         <a href="#process">Process</a>
         <a href="#contact" class="nav__cta">Let’s Talk</a>
       </nav>
@@ -54,7 +55,7 @@
     <section class="hero" id="top">
       <div class="wrap hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow reveal">Virtual Assistant · Digital Operations · Web Development & AI Automations</p>
+          <p class="eyebrow reveal">Virtual Assistant · Digital Operations</p>
           <h1 class="reveal" style="--d:.08s">Calm systems for <em>ambitious</em> brands.</h1>
           <p class="lead reveal" style="--d:.16s">I help design, architecture and real estate teams stay organized — from social media and content to inbox, scheduling and AI-powered workflows — so you can focus on the work only you can do.</p>
           <div class="hero__actions reveal" style="--d:.24s">
@@ -64,15 +65,15 @@
           <ul class="hero__facts reveal" style="--d:.32s">
             <li><strong>Social Media</strong><span>Content &amp; community</span></li>
             <li><strong>AI Automation</strong><span>n8n · Claude · CRM</span></li>
-            <li><strong>Admin Support</strong><span>Inbox · calendar · reports · Squarespace</span></li>
+            <li><strong>Admin Support</strong><span>Inbox · calendar · reports</span></li>
           </ul>
         </div>
 
         <div class="hero__visual reveal" style="--d:.12s">
           <div class="frame" id="heroFrame">
-            <img class="frame__bg frame__bg--light" src="luz-portfolio/assets/bg-light.webp" alt="" width="834" height="941">
-            <img class="frame__bg frame__bg--dark" src="luz-portfolio/assets/bg-dark.webp" alt="" width="830" height="941">
-            <img class="frame__luz" id="heroLuz" src="luz-portfolio/assets/luz-hero-1.webp" alt="Illustration of Luz holding a laptop" width="822" height="887">
+            <img class="frame__bg frame__bg--light" src="assets/bg-light.webp" alt="" width="834" height="941">
+            <img class="frame__bg frame__bg--dark" src="assets/bg-dark.webp" alt="" width="830" height="941">
+            <img class="frame__luz" id="heroLuz" src="assets/luz-hero-1.webp" alt="Illustration of Luz holding a laptop" width="822" height="887">
           </div>
           <div class="chip chip--a"><span class="dot"></span> Available for new projects</div>
           <div class="chip chip--b">Organized · Communicated · Supported</div>
@@ -93,7 +94,7 @@
       <div class="wrap about">
         <div class="about__media reveal">
           <div class="about__card">
-            <img src="luz-portfolio/assets/picture-luz-somodio.jpg" alt="Illustration of Luz at her laptop with a coffee" width="887" height="741" loading="lazy">
+            <img src="assets/luz-hero-2.webp" alt="Illustration of Luz at her laptop with a coffee" width="887" height="741" loading="lazy">
           </div>
         </div>
         <div class="about__copy">
@@ -122,7 +123,7 @@
 
         <div class="cards">
           <article class="card reveal">
-            <div class="card__img"><img src="luz-portfolio/assets/ai-automation.webp" alt="n8n workflow connecting Gmail, Claude and HubSpot for lead management" width="1672" height="941" loading="lazy"></div>
+            <div class="card__img"><img src="assets/ai-automation.webp" alt="n8n workflow connecting Gmail, Claude and HubSpot for lead management" width="1672" height="941" loading="lazy"></div>
             <div class="card__body">
               <h3>AI Automation</h3>
               <p>Lead capture, scoring and follow-up workflows built with n8n and Claude — connected to your inbox, CRM and spreadsheets.</p>
@@ -130,7 +131,7 @@
             </div>
           </article>
           <article class="card reveal" style="--d:.08s">
-            <div class="card__img"><img src="luz-portfolio/assets/social-media.webp" alt="Social media content calendar, Canva designs and Instagram and Facebook previews" width="1670" height="942" loading="lazy"></div>
+            <div class="card__img"><img src="assets/social-media.webp" alt="Social media content calendar, Canva designs and Instagram and Facebook previews" width="1670" height="942" loading="lazy"></div>
             <div class="card__body">
               <h3>Social Media &amp; Content</h3>
               <p>Content planning, Canva design, scheduling and community management that keeps your brand consistent and your feed alive.</p>
@@ -138,7 +139,7 @@
             </div>
           </article>
           <article class="card reveal" style="--d:.16s">
-            <div class="card__img"><img src="luz-portfolio/assets/admin-support.webp" alt="Calendar, inbox, weekly report and to-do notebook on a styled desk" width="1670" height="941" loading="lazy"></div>
+            <div class="card__img"><img src="assets/admin-support.webp" alt="Calendar, inbox, weekly report and to-do notebook on a styled desk" width="1670" height="941" loading="lazy"></div>
             <div class="card__body">
               <h3>Admin &amp; Operations</h3>
               <p>Inbox and calendar management, meeting prep, project tracking and weekly reporting — the details handled before you ask.</p>
@@ -182,8 +183,7 @@
             <h3>Admin &amp; Operations</h3>
             <div class="option">
               <span class="option__label">Monthly retainer</span>
-              <p class="price">$1,000 – $1,200 <small>/ month</small></p>
-              <p class="hours">40 hrs <small>/ week</small></p>
+              <p class="price">$1,000 – $1,350 <small>/ month</small></p>
               <p class="option__sub">Depends on the scope of work.</p>
             </div>
             <ul class="plan__list">
@@ -200,12 +200,12 @@
             <h3>Social Media &amp; Content</h3>
             <div class="option">
               <span class="option__label">One-month content package</span>
-              <p class="price">$250 – $400 <small>/ one month</small></p>
+              <p class="price">$200 – $300 <small>/ one month</small></p>
               <p class="option__sub">Depends on how complex the work is — the more automations, the higher the rate.</p>
             </div>
             <div class="option">
               <span class="option__label">Monthly retainer</span>
-              <p class="price">$1,000 <small>/ month</small></p>
+              <p class="price">$1,000 – $1,350 <small>/ month</small></p>
               <p class="option__sub">Ongoing monthly support.</p>
             </div>
             <ul class="plan__list">
@@ -221,7 +221,7 @@
             <h3>Website Design &amp; AI Automation</h3>
             <div class="option">
               <span class="option__label">Project rate</span>
-              <p class="price">From $500 <small>/ project</small></p>
+              <p class="price">From $300 <small>/ project</small></p>
               <p class="option__sub">Final quote after we scope the work.</p>
             </div>
             <div class="option">
@@ -248,23 +248,12 @@
             <p class="eyebrow reveal">Featured Works</p>
             <h2 class="reveal" style="--d:.06s">A few things I’m proud of</h2>
           </div>
-          <a class="btn btn--ghost reveal" data-works-link href="luz-featured-works/index.html">View all featured works →</a>
+          <a class="btn btn--ghost reveal" href="featured-works.html">View all featured works →</a>
         </header>
 
-        <div class="works">
-          <a class="work work--lg reveal" data-works-link data-project="lead-system" href="luz-featured-works/index.html#lead-system">
-            <img src="luz-portfolio/assets/ai-automation.webp" alt="AI lead management workflow" loading="lazy" width="1672" height="941">
-            <div class="work__meta"><span>AI Automation</span><h3>AI Lead Management System</h3></div>
-          </a>
-          <a class="work reveal" style="--d:.08s" data-works-link data-project="content-system" href="luz-featured-works/index.html#content-system">
-            <img src="luz-portfolio/assets/social-media.webp" alt="Social media content system" loading="lazy" width="1670" height="942">
-            <div class="work__meta"><span>Social Media</span><h3>Content Planning System</h3></div>
-          </a>
-          <a class="work reveal" style="--d:.16s" data-works-link data-project="weekly-reporting" href="luz-featured-works/index.html#weekly-reporting">
-            <img src="luz-portfolio/assets/analytics-workspace.webp" alt="Social media analytics workspace" loading="lazy" width="1672" height="941">
-            <div class="work__meta"><span>Reporting</span><h3>Weekly Performance Reports</h3></div>
-          </a>
-        </div>
+        <div class="works" id="teaser"></div>
+
+        <p class="works__more reveal"><a class="link" href="featured-works.html">Browse all <span id="worksCount">16</span> projects <span aria-hidden="true">→</span></a></p>
       </div>
     </section>
 
@@ -291,7 +280,7 @@
     <div class="wrap">
       <div class="footer__top">
         <div class="footer__brand">
-          <img src="luz-portfolio/assets/logo-green.png" alt="Luz Somodio, Virtual Assistant" width="533" height="172" loading="lazy">
+          <img src="assets/logo-green.png" alt="Luz Somodio, Virtual Assistant" width="533" height="172" loading="lazy">
           <h2>Let’s make your week lighter.</h2>
           <p>Tell me what you’d love off your plate and I’ll reply with next steps and a few ideas.</p>
         </div>
@@ -308,6 +297,9 @@
     </div>
   </footer>
 
-  <script src="luz-portfolio/js/main.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/works-data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>
