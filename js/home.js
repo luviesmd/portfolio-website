@@ -22,6 +22,15 @@
   var n = $('#worksCount');
   if (n) n.textContent = PROJECTS.length;
 
+  /* ---------- Tools (from tools-data.js) ---------- */
+  var tg = $('#toolsGrid');
+  if (tg && window.TOOLS) {
+    tg.innerHTML = TOOLS.map(function (t, i) {
+      return '<li class="tool reveal" style="--d:' + ((i % 7) * 0.05) + 's"><span class="tool__tile"><img src="assets/tools/' + esc(t.icon) + '" alt="" loading="lazy" draggable="false"></span><span class="tool__name">' + esc(t.name) + '</span></li>';
+    }).join('');
+    L.reveal($$('.tool', tg));
+  }
+
   /* ---------- Active link highlight ---------- */
   var links = $('#navLinks');
   var sections = $$('main section[id]').filter(function (s) { return $('a[href="#' + s.id + '"]', links); });

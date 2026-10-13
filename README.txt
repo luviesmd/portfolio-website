@@ -20,6 +20,9 @@ Folders
    To show a work on the home page add  teaser: 1  (or 2, 3).
    Meta screenshots belong in cat: 'social'.
 
+2b. ADD A TOOL (home page Tools section)
+   Save the logo in assets/tools/ and add one line in js/tools-data.js.
+
 3. VIEW-ONLY NOTES
    No download links; PDFs are shipped as page images, not files.
    Right-click, drag, and printing are blocked and enlarged images carry a
