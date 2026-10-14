@@ -36,7 +36,7 @@ var CATEGORIES = [
   }
 ];
 
-/* Fields: id, cat, title, blurb, intro, images[{src,alt}], cover{src,alt,fit,pos,bg}, sections[{title,text|steps|list|cards}], tags[], note, unit, teaser */
+/* Fields: id, cat, title, blurb, intro, images[{src,alt}] (for a video item: src = poster image, video = mp4 file, title), cover{src,alt,fit,pos,bg}, sections[{title,text|steps|list|cards}], tags[], note, unit, teaser */
 var PROJECTS = [
   {
     id: "lead-system",
@@ -181,6 +181,103 @@ var PROJECTS = [
       "Meta Business Suite"
     ],
     teaser: 2
+  },
+  {
+    id: "trinity-row-reels",
+    cat: "social",
+    title: "Trinity Row Residences — Instagram Reels",
+    blurb: "Four short vertical reels for a coastal townhome development: lifestyle footage, 3D home renders, brand end cards and a call to action.",
+    intro: "Short-form reels made for Trinity Row Residences, a coastal townhome development. They pair slow, calm coastal footage and 3D home renders with minimal on-screen text and the Trinity Row brand.",
+    unit: "reels",
+    note: "Viewing only — the reels are not offered for download.",
+    cover: {
+      src: "assets/works/video/reel-home-tour.webp",
+      alt: "Trinity Row reel: dark-clad coastal townhome exterior",
+      pos: "center 30%"
+    },
+    images: [
+      {
+        src: "assets/works/video/reel-build.webp",
+        video: "assets/works/video/reel-build.mp4",
+        title: "Trinity Row — Build your home with us",
+        alt: "Reel: Trinity Row interiors and exteriors with the logo, tagline and a “Build your home with us” call to action"
+      },
+      {
+        src: "assets/works/video/reel-coast.webp",
+        video: "assets/works/video/reel-coast.mp4",
+        title: "Drifting with the rhythm of the coast",
+        alt: "Reel: “Drifting with the rhythm of the coast.” Aerial town and harbour footage, then sailing"
+      },
+      {
+        src: "assets/works/video/reel-ocean.webp",
+        video: "assets/works/video/reel-ocean.mp4",
+        title: "A life connected to the ocean",
+        alt: "Reel: “A life connected to the ocean.” Aerial yacht, sailing and rocky coastline, ending on the Trinity Row logo"
+      },
+      {
+        src: "assets/works/video/reel-home-tour.webp",
+        video: "assets/works/video/reel-home-tour.mp4",
+        title: "Townhome home tour",
+        alt: "Reel: townhome exteriors and bright interiors, from staircases to living spaces and finishes"
+      }
+    ],
+    sections: [
+      {
+        title: "What’s inside",
+        list: [
+          "Vertical 9:16 reels sized for Instagram and Facebook",
+          "Coastal lifestyle footage and 3D interior and exterior renders",
+          "Short, quiet on-screen lines instead of heavy captions",
+          "Logo and tagline reveals, plus an end card with a website and contact call to action"
+        ]
+      }
+    ],
+    tags: [
+      "Reels",
+      "Video editing",
+      "Instagram",
+      "Facebook",
+      "Branding"
+    ]
+  },
+  {
+    id: "valleyfield-reel",
+    cat: "social",
+    title: "Valleyfield — “Soft Luxury” Reel",
+    blurb: "A short vertical reel for Valleyfield: three interior scenes stacked in one frame, a “soft luxury” title and the Stamp & Hammer logo.",
+    intro: "A 9-second vertical reel that presents the Valleyfield interiors — a dining and living space, a fireplace lounge and a kitchen — with a quiet “Valleyfield · soft luxury” title and the Stamp & Hammer logo to close.",
+    unit: "reel",
+    note: "Viewing only — the reel is not offered for download.",
+    cover: {
+      src: "assets/works/video/reel-valleyfield.webp",
+      alt: "Valleyfield reel: three interior scenes stacked in one frame",
+      pos: "center 40%"
+    },
+    images: [
+      {
+        src: "assets/works/video/reel-valleyfield.webp",
+        video: "assets/works/video/reel-valleyfield.mp4",
+        title: "Valleyfield — soft luxury",
+        alt: "Reel: Valleyfield interiors with the title “soft luxury” and the Stamp & Hammer logo"
+      }
+    ],
+    sections: [
+      {
+        title: "What’s inside",
+        list: [
+          "A vertical 9:16 reel sized for Instagram and Facebook",
+          "Three interior scenes shown together in one frame",
+          "A short “Valleyfield · soft luxury” title",
+          "Stamp & Hammer logo end mark"
+        ]
+      }
+    ],
+    tags: [
+      "Reels",
+      "Video editing",
+      "Instagram",
+      "Real estate"
+    ]
   },
   {
     id: "greenleaf-village",

@@ -142,3 +142,21 @@ body.wm .lb__wrap::after {
   .card { transition: none; opacity: 1; transform: none; }
   .modal__backdrop, .modal__panel { animation: none; }
 }
+
+/* ---------- Reels / video ---------- */
+.viewer__video { display: block; width: 100%; height: clamp(340px, 64vh, 600px); background: #0b120e; object-fit: contain; }
+.viewer__video[hidden] { display: none; }
+.viewer__main.is-video .viewer__stage, .viewer__main.is-video .viewer__hint { display: none; }
+.viewer__main.is-video .viewer__count { bottom: auto; top: 14px; }
+.thumb--video { position: relative; }
+.thumb--video::after { content: ""; position: absolute; left: 50%; top: 50%; width: 22px; height: 22px; transform: translate(-50%, -50%); border-radius: 50%; background: rgba(0, 0, 0, .55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6.5v11l9-5.5z' fill='white'/%3E%3C/svg%3E") center / 14px no-repeat; }
+.card__play { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: rgba(12, 22, 16, .45); border: 1px solid rgba(255, 255, 255, .5); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: transform .35s cubic-bezier(.34, 1.56, .64, 1), background .3s; pointer-events: none; }
+.card__play svg { margin-left: 3px; }
+.card__media:hover .card__play, .card__media:focus-visible .card__play { transform: scale(1.14); background: rgba(63, 110, 86, .8); }
+body.wm .viewer__main.is-video::after {
+  content: ""; position: absolute; inset: 0 0 60px 0; pointer-events: none; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='170'%3E%3Ctext x='24' y='104' transform='rotate(-24 140 85)' font-family='Arial,sans-serif' font-size='14' font-weight='700' letter-spacing='3' fill='%23ffffff' fill-opacity='.3' stroke='%23000000' stroke-opacity='.14' stroke-width='.5'%3E%26%23169%3B LUZ SOMODIO%3C/text%3E%3C/svg%3E");
+  background-size: 280px 170px;
+}
+
+.viewer__main.is-video .viewer__count { right: auto; left: 16px; z-index: 3; }

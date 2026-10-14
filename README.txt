@@ -23,8 +23,13 @@ Folders
 2b. ADD A TOOL (home page Tools section)
    Save the logo in assets/tools/ and add one line in js/tools-data.js.
 
+2c. ADD A REEL (video)
+   Export a vertical MP4 (H.264, ~720x1280, a few MB), save it plus a poster
+   image in assets/works/video/, then add an item to a project's images:
+   { src: 'assets/works/video/name.webp', video: 'assets/works/video/name.mp4', title: '...', alt: '...' }
+
 3. VIEW-ONLY NOTES
-   No download links; PDFs are shipped as page images, not files.
+   No download links; PDFs are shipped as page images, not files; reels have no download button.
    Right-click, drag, and printing are blocked and enlarged images carry a
    light "© LUZ SOMODIO" mark (turn off with WATERMARK:false in config.js).
    These are deterrents only — nothing on the web can fully stop screenshots.

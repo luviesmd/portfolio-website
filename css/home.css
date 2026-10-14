@@ -18,15 +18,15 @@
 [data-theme="dark"] .frame__bg--dark { opacity: 1; }
 [data-theme="dark"] .frame__bg--light { opacity: 0; }
 .frame__luz { position: absolute; left: 50%; bottom: -2%; width: 84%; transform: translateX(-50%) translate3d(var(--px, 0), var(--py, 0), 0); transition: transform .25s ease-out; filter: drop-shadow(0 24px 24px rgba(0, 0, 0, .18)); }
-.chip { position: absolute; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 10px 18px; font-size: .8rem; font-weight: 600; box-shadow: var(--shadow); display: flex; align-items: center; gap: 8px; animation: float 6s ease-in-out infinite; }
+.chip { position: absolute; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 10px 18px; font-size: .8rem; font-weight: 600; box-shadow: var(--shadow); display: flex; align-items: center; gap: 8px; }
 .chip--a { top: 12%; left: -2%; }
-.chip--b { bottom: 10%; right: -4%; animation-delay: -3s; color: var(--green); }
+.chip--b { bottom: 10%; right: -4%; color: var(--green); }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: #3fbf7a; box-shadow: 0 0 0 4px rgba(63, 191, 122, .22); }
 @keyframes float { 50% { transform: translateY(-8px); } }
 
 /* ---------- Marquee ---------- */
 .marquee { overflow: hidden; border-block: 1px solid var(--line); padding: 20px 0; background: var(--bg-alt); }
-.marquee__track { display: flex; gap: 48px; width: max-content; animation: scroll 38s linear infinite; }
+.marquee__track { display: flex; gap: 48px; width: max-content; animation: scroll 90s linear infinite; }
 .marquee__track span { font-family: var(--serif); font-style: italic; font-size: 1.5rem; color: var(--muted); white-space: nowrap; display: flex; align-items: center; gap: 48px; }
 .marquee__track span::after { content: "✦"; font-style: normal; font-size: .8rem; color: var(--green); }
 @keyframes scroll { to { transform: translateX(-50%); } }

@@ -63,7 +63,7 @@ button { font-family: inherit; color: inherit; }
 .protected img { pointer-events: none; -webkit-user-drag: none; }
 
 /* ---------- Reveal ---------- */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s ease var(--d, 0s), transform .8s cubic-bezier(.2, .7, .2, 1) var(--d, 0s); }
+.reveal { opacity: 0; transform: translateY(10px); transition: opacity .9s ease var(--d, 0s), transform .8s cubic-bezier(.2, .7, .2, 1) var(--d, 0s); }
 .reveal.is-in { opacity: 1; transform: none; }
 .no-js .reveal { opacity: 1; transform: none; }
 
