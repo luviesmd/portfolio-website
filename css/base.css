@@ -120,6 +120,15 @@ button { font-family: inherit; color: inherit; }
 .footer__bottom a { text-decoration: none; }
 .footer__bottom a:hover { text-decoration: underline; }
 
+/* ---------- Sections ---------- */
+.section { padding: 112px 0; }
+.section--alt { background: var(--bg-alt); }
+.section__head { max-width: 640px; margin-bottom: 56px; }
+.section__head--row { max-width: none; display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.section h2 { font-size: clamp(2.2rem, 4.2vw, 3.4rem); margin-bottom: 18px; }
+.section__head p:last-child { color: var(--muted); margin-bottom: 0; }
+
+
 /* ---------- Printing is disabled ---------- */
 @media print {
   body > * { display: none !important; }
@@ -139,6 +148,7 @@ button { font-family: inherit; color: inherit; }
   .nav__links { margin-left: 0; }
 }
 @media (max-width: 560px) {
+  .section { padding: 80px 0; }
   .footer { padding-top: 72px; }
   .footer__card { padding: 26px; }
 }

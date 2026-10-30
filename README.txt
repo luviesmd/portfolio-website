@@ -9,6 +9,10 @@ Folders
   js/    config.js, works-data.js, common.js, home.js, works.js
   assets/ images; assets/works/ holds the featured-work images
 
+0. PAGES
+  index.html (hero + random projects carousel + services/fees), about.html
+  (experience, tools, education), featured-works.html (all projects)
+
 1. SET YOUR EMAIL
    Open js/config.js and change email. Every email button and the footer
    use it (one place for both pages).
@@ -20,7 +24,11 @@ Folders
    To show a work on the home page add  teaser: 1  (or 2, 3).
    Meta screenshots belong in cat: 'social'.
 
-2b. ADD A TOOL (home page Tools section)
+2a. ABOUT PAGE TEXT
+   Experience, skills and education are in js/about-data.js — replace the
+   [Your degree or program] placeholder with your real education.
+
+2b. ADD A TOOL (About page)
    Save the logo in assets/tools/ and add one line in js/tools-data.js.
 
 2c. ADD A REEL (video)

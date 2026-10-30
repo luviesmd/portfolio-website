@@ -31,8 +31,8 @@
         <img src="assets/logo-green.png" alt="Luz Somodio, Virtual Assistant" width="533" height="172">
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary">
-        <a href="#top">Featured Works</a>
-        <a href="#intro">About</a>
+        <a href="featured-works.html">Featured Works</a>
+        <a href="about.html">About</a>
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
         <a href="#process">Process</a>
@@ -51,32 +51,16 @@
   </header>
 
   <main id="main">
-    <!-- ============ FEATURED WORKS (first thing visitors see) ============ -->
-    <section class="showcase" id="top">
-      <div class="wrap">
-        <header class="section__head section__head--row">
-          <div>
-            <p class="eyebrow reveal">Featured Works</p>
-            <h1 class="showcase__title reveal" style="--d:.06s">Work I’ve <em>done</em></h1>
-            <p class="lead reveal" style="--d:.12s">Reels, brand boards, automations, signage and more — a selection from the brands I support. Tap any project to see it up close.</p>
-          </div>
-          <a class="btn btn--primary reveal" style="--d:.16s" href="featured-works.html"><span>View all <span id="worksCount">18</span> projects →</span></a>
-        </header>
-
-        <div class="works" id="teaser"></div>
-      </div>
-    </section>
-
-    <!-- ============ HERO ============ -->
-    <section class="hero hero--intro" id="intro">
+    <!-- ============ HERO (short introduction) ============ -->
+    <section class="hero" id="top">
       <div class="wrap hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow reveal">Hi, I’m Luz · Virtual Assistant</p>
-          <h1 class="reveal" style="--d:.08s">Calm systems for <em>ambitious</em> brands.</h1>
-          <p class="lead reveal" style="--d:.16s">Nice to meet you! I help design, architecture and real estate teams stay organized — from social media and content to inbox, scheduling and AI-powered workflows — so you can focus on the work only you can do.</p>
+          <p class="eyebrow reveal">Virtual Assistant · Digital Operations</p>
+          <h1 class="reveal" style="--d:.08s">Hi, I’m <em>Luz</em>.</h1>
+          <p class="lead reveal" style="--d:.16s">I’m a virtual assistant for design, architecture and real estate brands. I handle social media and content, inbox and scheduling, and AI-powered workflows — so you can focus on the work only you can do.</p>
           <div class="hero__actions reveal" style="--d:.24s">
-            <a class="btn btn--primary" href="#contact">Work with me</a>
-            <a class="btn btn--ghost" href="#top">Back to the work</a>
+            <a class="btn btn--primary" href="#work">See my work</a>
+            <a class="btn btn--ghost" href="#contact">Let’s talk</a>
           </div>
           <ul class="hero__facts reveal" style="--d:.32s">
             <li><strong>Social Media</strong><span>Content &amp; community</span></li>
@@ -97,34 +81,27 @@
       </div>
     </section>
 
-    <!-- ============ MARQUEE ============ -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__track">
-        <span>Social Media</span><span>SEO</span><span>AI Automation</span><span>Content Production</span><span>Inbox Management</span><span>Calendar Coordination</span><span>Reporting</span><span>Hiring &amp; Onboarding</span>
-        <span>Social Media</span><span>SEO</span><span>AI Automation</span><span>Content Production</span><span>Inbox Management</span><span>Calendar Coordination</span><span>Reporting</span><span>Hiring &amp; Onboarding</span>
-      </div>
-    </div>
-
-    <!-- ============ ABOUT ============ -->
-    <section class="section" id="about">
-      <div class="wrap about">
-        <div class="about__media reveal">
-          <div class="about__card">
-            <img src="assets/luz-hero-2.webp" alt="Illustration of Luz at her laptop with a coffee" width="887" height="741" loading="lazy">
+    <!-- ============ PROJECTS CAROUSEL (random order) ============ -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <header class="section__head section__head--row carousel__head">
+          <div>
+            <p class="eyebrow reveal">Featured Works</p>
+            <h2 class="reveal" style="--d:.06s">Work I’ve done</h2>
           </div>
-        </div>
-        <div class="about__copy">
-          <p class="eyebrow reveal">About</p>
-          <h2 class="reveal" style="--d:.06s">The calm behind a busy brand.</h2>
-          <p class="reveal" style="--d:.12s">I’m Luz — a solo virtual assistant who works alongside luxury architecture and residential development brands. My role is part operations, part creative: I keep the digital side of the business running smoothly and make it look good while doing it.</p>
-          <p class="reveal" style="--d:.18s">I like practical, lean solutions. When there’s little budget, I lean on smart tools, clear processes and a bit of automation to get big-brand results without big-brand overhead.</p>
-          <ul class="ticks reveal" style="--d:.24s">
-            <li>Warm, proactive communication</li>
-            <li>Detail-obsessed, deadline-ready</li>
-            <li>Comfortable with new tools &amp; AI</li>
-            <li>Works independently, reports clearly</li>
-          </ul>
-        </div>
+          <div class="carousel__ctrl reveal" style="--d:.1s">
+            <button class="carousel__btn" id="carPrev" type="button" aria-label="Previous projects">‹</button>
+            <button class="carousel__btn" id="carNext" type="button" aria-label="Next projects">›</button>
+            <a class="btn btn--ghost" href="featured-works.html"><span>View all <span id="worksCount">18</span> projects →</span></a>
+          </div>
+        </header>
+      </div>
+      <div class="carousel" id="carousel" role="region" aria-roledescription="carousel" aria-label="Featured works, in a different order each visit" tabindex="0">
+        <div class="carousel__belt" id="carouselTrack"></div>
+      </div>
+      <div class="wrap">
+        <div class="carousel__bar" aria-hidden="true"><span id="carBar"></span></div>
+        <p class="carousel__hint">Scroll the page and the projects glide along — or drag, swipe or use the arrows. Tap a project to see it up close.</p>
       </div>
     </section>
 
@@ -181,18 +158,6 @@
             <p>Role posts, screening support and smooth first-week onboarding.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ TOOLS ============ -->
-    <section class="section tools" id="tools">
-      <div class="wrap">
-        <header class="section__head">
-          <p class="eyebrow reveal">Tools</p>
-          <h2 class="reveal" style="--d:.06s">Tools I work with</h2>
-          <p class="reveal" style="--d:.12s">The apps and platforms I use every day to keep your content, systems and workflows running smoothly.</p>
-        </header>
-        <ul class="tools__grid" id="toolsGrid"></ul>
       </div>
     </section>
 
@@ -310,7 +275,6 @@
 
   <script src="js/config.js"></script>
   <script src="js/works-data.js"></script>
-  <script src="js/tools-data.js"></script>
   <script src="js/common.js"></script>
   <script src="js/home.js"></script>
 </body>

@@ -5,30 +5,103 @@
   'use strict';
   var L = window.Luz, $ = L.$, $$ = L.$$, esc = L.esc;
 
-  /* ---------- Featured-works teaser (from works-data.js) ---------- */
+  /* ---------- Projects carousel: random order, glides with page scroll ---------- */
   var catName = {};
   CATEGORIES.forEach(function (c) { catName[c.id] = c.label; });
-  var picks = PROJECTS.filter(function (p) { return p.teaser; }).sort(function (a, b) { return a.teaser - b.teaser; });
-  var box = $('#teaser');
-  if (box) {
-    box.innerHTML = picks.map(function (p, i) {
-      var c = p.cover || p.images[0];
-      return '<a class="work' + (i === 0 ? ' work--lg' : '') + ' reveal" style="--d:' + (i * 0.08) + 's" href="featured-works.html#' + esc(p.id) + '">' +
-        '<img src="' + esc(c.src) + '" alt="' + esc(c.alt || p.title) + '" loading="lazy" style="object-position:' + esc(c.pos || 'center') + '">' +
-        '<div class="work__meta"><span>' + esc(catName[p.cat] || p.cat) + '</span><h3>' + esc(p.title) + '</h3></div></a>';
-    }).join('');
-    L.reveal($$('.work', box));
+  var order = PROJECTS.slice();
+  for (var i = order.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = order[i]; order[i] = order[j]; order[j] = tmp;
   }
   var n = $('#worksCount');
   if (n) n.textContent = PROJECTS.length;
 
-  /* ---------- Tools (from tools-data.js) ---------- */
-  var tg = $('#toolsGrid');
-  if (tg && window.TOOLS) {
-    tg.innerHTML = TOOLS.map(function (t, i) {
-      return '<li class="tool reveal" style="--d:' + ((i % 7) * 0.05) + 's"><span class="tool__tile"><img src="assets/tools/' + esc(t.icon) + '" alt="" loading="lazy" draggable="false"></span><span class="tool__name">' + esc(t.name) + '</span></li>';
+  var car = $('#carousel'), belt = $('#carouselTrack');
+  if (car && belt) {
+    var pad2 = function (k) { return (k < 10 ? '0' : '') + k; };
+    belt.innerHTML = order.map(function (p, k) {
+      var c = p.cover || p.images[0];
+      var reel = p.images.some(function (x) { return x.video; });
+      return '<a class="slide" href="featured-works.html#' + esc(p.id) + '" draggable="false">' +
+        '<span class="slide__frame"' + (c.bg ? ' style="background:' + esc(c.bg) + '"' : '') + '><img src="' + esc(c.src) + '" alt="' + esc(c.alt || p.title) + '" loading="lazy" draggable="false" style="object-fit:' + esc(c.fit || 'cover') + ';object-position:' + esc(c.pos || 'center') + '">' +
+        (reel ? '<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>' : '') + '</span>' +
+        '<span class="slide__cap"><span class="slide__no">' + pad2(k + 1) + '</span><span class="slide__cat">' + esc(catName[p.cat] || p.cat) + '</span><h3>' + esc(p.title) + '</h3></span></a>';
     }).join('');
-    L.reveal($$('.tool', tg));
+
+    var prev = $('#carPrev'), next = $('#carNext'), bar = $('#carBar');
+    var slides = $$('.slide', belt);
+    var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var gap = 28;
+
+    if (reduceMotion) {
+      /* calm fallback: an ordinary swipeable row */
+      car.classList.add('carousel--native');
+      var stepN = function () { return (slides[0] ? slides[0].getBoundingClientRect().width : 300) + gap; };
+      prev.addEventListener('click', function () { car.scrollBy({ left: -stepN() * 2 }); });
+      next.addEventListener('click', function () { car.scrollBy({ left: stepN() * 2 }); });
+    } else {
+      var speed = (typeof CONFIG.carouselScroll === 'number') ? CONFIG.carouselScroll : 0.9;
+      var cur = 0, target = 0, manual = 0, max = 0, raf = 0;
+      var geo = [];
+      var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
+      var measure = function () {
+        max = Math.max(0, belt.scrollWidth - car.clientWidth);
+        geo = slides.map(function (s) { return { l: s.offsetLeft, w: s.offsetWidth, img: $('img', s) }; });
+      };
+      var base = function () {
+        var r = car.getBoundingClientRect();
+        return Math.max(0, (window.innerHeight * 0.8 - r.top) * speed);
+      };
+      var compute = function () { target = clamp(base() + manual, 0, max); };
+      var render = function () {
+        raf = 0;
+        cur += (target - cur) * 0.12;
+        if (Math.abs(target - cur) < 0.3) cur = target;
+        belt.style.transform = 'translate3d(' + (-cur).toFixed(1) + 'px,0,0)';
+        var vw = car.clientWidth;
+        for (var k = 0; k < geo.length; k++) {
+          var g = geo[k], left = g.l - cur;
+          if (left > vw + 80 || left + g.w < -80) continue;
+          var norm = (left + g.w / 2 - vw / 2) / vw;
+          g.img.style.transform = 'translate3d(' + (norm * -34).toFixed(1) + 'px,0,0)';
+        }
+        if (bar) bar.style.transform = 'scaleX(' + (max ? (cur / max).toFixed(4) : 0) + ')';
+        prev.disabled = cur < 4 && target < 4;
+        next.disabled = cur > max - 4 && target > max - 4;
+        if (cur !== target) raf = requestAnimationFrame(render);
+      };
+      var kick = function () { compute(); if (!raf) raf = requestAnimationFrame(render); };
+      var setManual = function (m) { var t = clamp(base() + m, 0, max); manual = t - base(); kick(); };
+      var stepPx = function () { return (geo[0] ? geo[0].w : 300) + gap; };
+
+      measure(); kick();
+      window.addEventListener('scroll', kick, { passive: true });
+      window.addEventListener('resize', function () { measure(); kick(); });
+      window.addEventListener('load', function () { measure(); kick(); });
+      prev.addEventListener('click', function () { setManual(manual - stepPx() * 2); });
+      next.addEventListener('click', function () { setManual(manual + stepPx() * 2); });
+      car.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); setManual(manual + stepPx()); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); setManual(manual - stepPx()); }
+      });
+
+      /* drag / swipe sideways (vertical page scrolling still works on touch) */
+      var down = null, moved = false;
+      car.addEventListener('pointerdown', function (e) {
+        if (e.pointerType === 'mouse' && e.button !== 0) return;
+        down = { x: e.clientX, m: manual }; moved = false;
+      });
+      window.addEventListener('pointermove', function (e) {
+        if (!down) return;
+        var dx = e.clientX - down.x;
+        if (!moved && Math.abs(dx) > 6) { moved = true; car.classList.add('is-dragging'); }
+        if (moved) setManual(down.m - dx);
+      });
+      var end = function () { if (down) { down = null; car.classList.remove('is-dragging'); } };
+      window.addEventListener('pointerup', end);
+      window.addEventListener('pointercancel', end);
+      belt.addEventListener('click', function (e) { if (moved) { e.preventDefault(); moved = false; } });
+    }
   }
 
   /* ---------- Active link highlight ---------- */
