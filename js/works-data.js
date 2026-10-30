@@ -6,7 +6,7 @@
    2. Add a block to PROJECTS below (copy an existing one).
    3. Save. The card, filter count and case study appear on the
       Featured Works page automatically.
-   Optional: add  teaser: 1  (or 2, 3) to show a work on the home page.
+   Optional: add  teaser: 1  (or 2, 3, 4, 5) to show a work on the home page.
    ========================================================== */
 
 var CATEGORIES = [
@@ -180,7 +180,7 @@ var PROJECTS = [
       "Facebook",
       "Meta Business Suite"
     ],
-    teaser: 2
+    teaser: 4
   },
   {
     id: "trinity-row-reels",
@@ -238,7 +238,8 @@ var PROJECTS = [
       "Instagram",
       "Facebook",
       "Branding"
-    ]
+    ],
+    teaser: 2
   },
   {
     id: "valleyfield-reel",
@@ -323,7 +324,8 @@ var PROJECTS = [
       "Banners",
       "Branding",
       "Mockups"
-    ]
+    ],
+    teaser: 5
   },
   {
     id: "greenleaf-home-collections",

@@ -31,10 +31,10 @@
         <img src="assets/logo-green.png" alt="Luz Somodio, Virtual Assistant" width="533" height="172">
       </a>
       <nav class="nav__links" id="navLinks" aria-label="Primary">
-        <a href="#about">About</a>
+        <a href="#top">Featured Works</a>
+        <a href="#intro">About</a>
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
-        <a href="featured-works.html">Featured Works</a>
         <a href="#process">Process</a>
         <a href="#contact" class="nav__cta">Let’s Talk</a>
       </nav>
@@ -51,16 +51,32 @@
   </header>
 
   <main id="main">
+    <!-- ============ FEATURED WORKS (first thing visitors see) ============ -->
+    <section class="showcase" id="top">
+      <div class="wrap">
+        <header class="section__head section__head--row">
+          <div>
+            <p class="eyebrow reveal">Featured Works</p>
+            <h1 class="showcase__title reveal" style="--d:.06s">Work I’ve <em>done</em></h1>
+            <p class="lead reveal" style="--d:.12s">Reels, brand boards, automations, signage and more — a selection from the brands I support. Tap any project to see it up close.</p>
+          </div>
+          <a class="btn btn--primary reveal" style="--d:.16s" href="featured-works.html"><span>View all <span id="worksCount">18</span> projects →</span></a>
+        </header>
+
+        <div class="works" id="teaser"></div>
+      </div>
+    </section>
+
     <!-- ============ HERO ============ -->
-    <section class="hero" id="top">
+    <section class="hero hero--intro" id="intro">
       <div class="wrap hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow reveal">Virtual Assistant · Digital Operations</p>
+          <p class="eyebrow reveal">Hi, I’m Luz · Virtual Assistant</p>
           <h1 class="reveal" style="--d:.08s">Calm systems for <em>ambitious</em> brands.</h1>
-          <p class="lead reveal" style="--d:.16s">I help design, architecture and real estate teams stay organized — from social media and content to inbox, scheduling and AI-powered workflows — so you can focus on the work only you can do.</p>
+          <p class="lead reveal" style="--d:.16s">Nice to meet you! I help design, architecture and real estate teams stay organized — from social media and content to inbox, scheduling and AI-powered workflows — so you can focus on the work only you can do.</p>
           <div class="hero__actions reveal" style="--d:.24s">
             <a class="btn btn--primary" href="#contact">Work with me</a>
-            <a class="btn btn--ghost" href="#works">See featured works</a>
+            <a class="btn btn--ghost" href="#top">Back to the work</a>
           </div>
           <ul class="hero__facts reveal" style="--d:.32s">
             <li><strong>Social Media</strong><span>Content &amp; community</span></li>
@@ -249,23 +265,6 @@
             <a class="btn btn--ghost btn--block plan__cta" data-email-link data-subject="Website &amp; AI Automation inquiry" href="#">Inquire about this</a>
           </article>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ FEATURED WORKS TEASER ============ -->
-    <section class="section section--alt" id="works">
-      <div class="wrap">
-        <header class="section__head section__head--row">
-          <div>
-            <p class="eyebrow reveal">Featured Works</p>
-            <h2 class="reveal" style="--d:.06s">A few things I’m proud of</h2>
-          </div>
-          <a class="btn btn--ghost reveal" href="featured-works.html">View all featured works →</a>
-        </header>
-
-        <div class="works" id="teaser"></div>
-
-        <p class="works__more reveal"><a class="link" href="featured-works.html">Browse all <span id="worksCount">16</span> projects <span aria-hidden="true">→</span></a></p>
       </div>
     </section>
 
