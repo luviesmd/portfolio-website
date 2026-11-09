@@ -26,7 +26,7 @@
     var badge = n + ' ' + (n === 1 ? unit.replace(/s$/, '') : unit);
     var style = '--fit:' + (c.fit || 'cover') + ';--pos:' + (c.pos || 'center') + (c.bg ? ';--cbg:' + c.bg : '');
     var tags = (p.tags || []).slice(0, 4).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
-    return '<article class="card reveal" id="' + esc(p.id) + '" data-cat="' + esc(p.cat) + '" style="--d:' + ((i % 2) * 0.08) + 's">' +
+    return '<article class="card reveal" id="' + esc(p.id) + '" data-cat="' + esc(p.cat) + '" data-sub="' + esc(p.sub || '') + '" style="--d:' + ((i % 2) * 0.08) + 's">' +
       '<button class="card__media protected" type="button" data-open="' + esc(p.id) + '" style="' + style + '" aria-label="Open case study: ' + esc(p.title) + '">' +
         '<img src="' + esc(c.src) + '" alt="' + esc(c.alt || p.title) + '" loading="lazy" draggable="false">' +
         '<span class="card__badge">' + esc(badge) + '</span>' +
@@ -34,7 +34,7 @@
         '<span class="card__view">View case study</span>' +
       '</button>' +
       '<div class="card__body">' +
-        '<p class="project__cat"><span class="card__no">' + pad(i + 1) + '</span>' + esc(catName[p.cat] || p.cat) + '</p>' +
+        '<p class="project__cat"><span class="card__no">' + pad(i + 1) + '</span>' + esc(catName[p.cat] || p.cat) + (p.sub ? '<span class="project__sub">' + esc(p.sub) + '</span>' : '') + '</p>' +
         '<h2>' + esc(p.title) + '</h2>' +
         '<p>' + esc(p.blurb) + '</p>' +
         (tags ? '<ul class="tags">' + tags + '</ul>' : '') +
@@ -51,6 +51,8 @@
   var filterBar = $('#filterBar');
   var empty = $('#empty');
   var currentFilter = 'all';
+  var currentSub = 'all';
+  var subBar = $('#subBar');
   (function buildFilters() {
     var counts = { all: PROJECTS.length };
     PROJECTS.forEach(function (p) { counts[p.cat] = (counts[p.cat] || 0) + 1; });
@@ -61,8 +63,11 @@
     filterBar.innerHTML = html;
   })();
 
-  function applyFilter(f) {
+  function applyFilter(f, s) {
+    if (f !== currentFilter) currentSub = 'all';
+    if (s) currentSub = s;
     currentFilter = f;
+    buildSubs();
     $$('.pill', filterBar).forEach(function (p) {
       var on = p.getAttribute('data-filter') === f;
       p.classList.toggle('is-active', on);
@@ -70,7 +75,7 @@
     });
     var shown = 0;
     cards.forEach(function (c) {
-      var match = f === 'all' || c.getAttribute('data-cat') === f;
+      var match = (f === 'all' || c.getAttribute('data-cat') === f) && (currentSub === 'all' || c.getAttribute('data-sub') === currentSub);
       if (match) {
         shown++;
         c.hidden = false;
@@ -86,6 +91,19 @@
   filterBar.addEventListener('click', function (e) {
     var b = e.target.closest('.pill');
     if (b) applyFilter(b.getAttribute('data-filter'));
+  });
+  function buildSubs() {
+    var subs = [];
+    PROJECTS.forEach(function (p) { if ((currentFilter === 'all' || p.cat === currentFilter) && p.sub && subs.indexOf(p.sub) < 0) subs.push(p.sub); });
+    if (currentFilter === 'all' || subs.length < 2) { subBar.hidden = true; subBar.innerHTML = ''; return; }
+    subBar.hidden = false;
+    subBar.innerHTML = '<button class="pill pill--sub' + (currentSub === 'all' ? ' is-active' : '') + '" type="button" data-sub="all">All</button>' + subs.map(function (s) {
+      return '<button class="pill pill--sub' + (currentSub === s ? ' is-active' : '') + '" type="button" data-sub="' + esc(s) + '">' + esc(s) + '</button>';
+    }).join('');
+  }
+  subBar.addEventListener('click', function (e) {
+    var b = e.target.closest('.pill--sub');
+    if (b) { currentSub = b.getAttribute('data-sub'); applyFilter(currentFilter); }
   });
 
   /* ---------- Case study modal ---------- */
@@ -151,12 +169,15 @@
     var p = byId[id];
     if (!p) return;
     cur = p;
-    $('#mCat').textContent = catName[p.cat] || p.cat;
+    $('#mCat').textContent = (catName[p.cat] || p.cat) + (p.sub ? ' · ' + p.sub : '');
     $('#mTitle').textContent = p.title;
     $('#mIntro').textContent = p.intro || p.blurb;
     var note = $('#mNote');
     note.textContent = p.note || '';
     note.hidden = !p.note;
+    var why = $('#mWhy');
+    why.hidden = !p.why;
+    if (p.why) why.innerHTML = '<p class="why__label">Why I made it this way</p><p class="why__hook"><span>The hook</span>' + esc(p.why.hook) + '</p><p class="why__text">' + esc(p.why.reason) + '</p>';
     $('#mSecs').innerHTML = sectionsHTML(p);
     $('#mTools').innerHTML = (p.tags || []).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
     viewer.classList.toggle('is-single', p.images.length < 2);
@@ -171,7 +192,7 @@
     scroller.scrollTop = 0;
   }
   function visibleIds() {
-    return PROJECTS.filter(function (p) { return currentFilter === 'all' || p.cat === currentFilter; }).map(function (p) { return p.id; });
+    return PROJECTS.filter(function (p) { return (currentFilter === 'all' || p.cat === currentFilter) && (currentSub === 'all' || p.sub === currentSub); }).map(function (p) { return p.id; });
   }
 
   function openModal(id, fromHash) {

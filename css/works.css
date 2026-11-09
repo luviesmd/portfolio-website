@@ -160,3 +160,15 @@ body.wm .viewer__main.is-video::after {
 }
 
 .viewer__main.is-video .viewer__count { right: auto; left: 16px; z-index: 3; }
+
+/* sub-categories and the "why I made it" panel */
+.filters__sub { padding-top: 0; padding-bottom: 12px; }
+.filters__sub[hidden] { display: none; }
+.pill--sub { font-size: .8rem; padding: 6px 14px; opacity: .92; }
+.project__sub { margin-left: 10px; padding-left: 10px; border-left: 1px solid var(--line); letter-spacing: .04em; text-transform: none; font-weight: 600; color: var(--muted); }
+.why { margin: 6px 0 14px; padding: 18px 20px; border-radius: 16px; background: color-mix(in srgb, var(--green) 8%, transparent); border: 1px solid var(--line); border-left: 3px solid var(--green); }
+.why[hidden] { display: none; }
+.why__label { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--green); margin: 0 0 8px; }
+.why__hook { margin: 0 0 6px; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.3rem; line-height: 1.25; }
+.why__hook span { display: block; font-family: inherit; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 2px; font-family: "Manrope", system-ui, sans-serif; }
+.why__text { margin: 0; color: var(--muted); font-size: .94rem; line-height: 1.65; }

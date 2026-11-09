@@ -6,33 +6,33 @@
    2. Add a block to PROJECTS below (copy an existing one).
    3. Save. The card, filter count and case study appear on the
       Featured Works page automatically.
-   Optional: add  teaser: 1  (or 2, 3, 4, 5) to show a work on the home page.
+   Each work has a  sub  (sub-category) and a  why  { hook, reason } shown in the case study.
    ========================================================== */
 
 var CATEGORIES = [
   {
-    id: "ai",
-    label: "AI Automation"
+    "id": "ai",
+    "label": "AI Automation"
   },
   {
-    id: "social",
-    label: "Social Media Management"
+    "id": "social",
+    "label": "Social Media"
   },
   {
-    id: "design",
-    label: "Graphic Design"
+    "id": "design",
+    "label": "Graphic Design"
   },
   {
-    id: "docs",
-    label: "Proposals & Documents"
+    "id": "docs",
+    "label": "Proposals & Listings"
   },
   {
-    id: "ops",
-    label: "Admin & Operations"
+    "id": "ops",
+    "label": "Admin & Operations"
   },
   {
-    id: "reporting",
-    label: "Reporting"
+    "id": "reporting",
+    "label": "Reporting"
   }
 ];
 
@@ -87,7 +87,11 @@ var PROJECTS = [
       "Gmail",
       "Google Sheets"
     ],
-    teaser: 1
+    sub: "Workflow Automation",
+    why: {
+      hook: "Never let a new inquiry sit unanswered.",
+      reason: "Replying fast is what wins a lead, but sorting and scoring every message by hand eats the day. So the workflow does the sorting and leaves a draft reply ready, and a person only reviews and sends."
+    }
   },
   {
     id: "meta-insights",
@@ -136,7 +140,12 @@ var PROJECTS = [
       "Facebook",
       "Instagram",
       "Analytics"
-    ]
+    ],
+    sub: "Meta Insights",
+    why: {
+      hook: "Turn the numbers into a next step, not just a screenshot.",
+      reason: "Clients rarely read a full dashboard. I pull out the figures that show what is working (reach, views, top posts) so the next round of content is decided by evidence. Client details are blurred."
+    }
   },
   {
     id: "content-system",
@@ -180,7 +189,11 @@ var PROJECTS = [
       "Facebook",
       "Meta Business Suite"
     ],
-    teaser: 4
+    sub: "Content Planning",
+    why: {
+      hook: "One plan everyone can see.",
+      reason: "Posting consistently is mostly about planning ahead. Laying the month out in one place removes the last-minute scramble and keeps the feed looking like one brand."
+    }
   },
   {
     id: "trinity-row-reels",
@@ -239,7 +252,11 @@ var PROJECTS = [
       "Facebook",
       "Branding"
     ],
-    teaser: 2
+    sub: "Reels",
+    why: {
+      hook: "Open on the feeling, then say one calm line.",
+      reason: "Luxury reads as restraint. I use slow coastal footage, very little on-screen text and a clean end card with a call to action, so the first seconds feel like the place and the last seconds tell people what to do."
+    }
   },
   {
     id: "valleyfield-reel",
@@ -278,136 +295,73 @@ var PROJECTS = [
       "Video editing",
       "Instagram",
       "Real estate"
-    ]
+    ],
+    sub: "Reels",
+    why: {
+      hook: "Lead with the mood, not the specs.",
+      reason: "“Soft luxury” is a feeling, so the reel opens on texture, light and calm pacing before any details appear. Viewers who stay get the message without being sold to."
+    }
   },
   {
-    id: "greenleaf-village",
-    cat: "design",
-    title: "GreenLeaf Village Signage & Banners",
-    blurb: "Roadside signs and fabric banners for a residential community, shown as flat artwork and on-site mockups.",
-    intro: "Signage and banner designs for GreenLeaf Village, built around the line “Plant Yourself Here.” and a calm green-and-gold palette.",
+    id: "ai-videos",
+    cat: "social",
+    title: "AI Generated Videos",
+    blurb: "Four short vertical videos made with generative AI: a design center walkthrough, choosing finishes, and aerial and street-level views of a townhome community.",
+    intro: "Concept videos created with AI video tools for real estate content. They show experiences that are hard or costly to film, such as a design center visit and a community with its amenities.",
+    unit: "videos",
+    note: "AI-generated concept footage, shown for viewing only. Not offered for download.",
     cover: {
-      src: "assets/works/greenleaf-1.webp",
-      alt: "GreenLeaf Village roadside sign mockup"
+      src: "assets/works/video/ai-aerial.webp",
+      alt: "AI-generated aerial view of a townhome community with a pool, pickleball courts and playground"
     },
     images: [
       {
-        src: "assets/works/greenleaf-1.webp",
-        alt: "Two GreenLeaf Village sign panels beside a country road"
+        src: "assets/works/video/ai-design-center.webp",
+        video: "assets/works/video/ai-design-center.mp4",
+        title: "Design center walkthrough",
+        alt: "AI video: a bright design center with a reception desk and finish samples"
       },
       {
-        src: "assets/works/greenleaf-2.webp",
-        alt: "GreenLeaf Village sign panels in a field"
+        src: "assets/works/video/ai-selections.webp",
+        video: "assets/works/video/ai-selections.mp4",
+        title: "Choosing finishes",
+        alt: "AI video: two people choosing tiles and finish samples in a showroom"
       },
       {
-        src: "assets/works/greenleaf-3.webp",
-        alt: "GreenLeaf Village fabric pole banners, 2.5 ft by 8 ft"
+        src: "assets/works/video/ai-aerial.webp",
+        video: "assets/works/video/ai-aerial.mp4",
+        title: "Community from above",
+        alt: "AI video: aerial view of townhomes, pond, pool, courts and playground"
       },
       {
-        src: "assets/works/greenleaf-4.webp",
-        alt: "GreenLeaf Village sign artwork, flat"
-      }
-    ],
-    sections: [
-      {
-        title: "What’s included",
-        list: [
-          "Two sign panels with a shaped leaf-inspired top edge",
-          "Fabric pole banners, 2.5 ft × 8 ft",
-          "Flat artwork alongside on-site mockups",
-          "Consistent messaging: spacious homes, 3+ acre lots, established community and natural surroundings"
-        ]
-      }
-    ],
-    tags: [
-      "Signage",
-      "Banners",
-      "Branding",
-      "Mockups"
-    ],
-    teaser: 5
-  },
-  {
-    id: "greenleaf-home-collections",
-    cat: "docs",
-    title: "GreenLeaf Village — Home Collections",
-    blurb: "A furniture buying list for a residential community, laid out as a branded one-page sheet in two versions.",
-    intro: "A “Curated Living: Home Collections” sheet for GreenLeaf Village: eight lettered products with name, description and price beside a render of the community office. Shown in two layout versions.",
-    unit: "versions",
-    note: "Preview only — the original files are not available to download.",
-    cover: {
-      src: "assets/works/collection-1.webp",
-      alt: "GreenLeaf Village Home Collections furniture buying list"
-    },
-    images: [
-      {
-        src: "assets/works/collection-1.webp",
-        alt: "Home Collections buying list, version 1: eight furniture items A to H with prices"
-      },
-      {
-        src: "assets/works/collection-2.webp",
-        alt: "Home Collections buying list, version 2: compact layout with the same eight items"
+        src: "assets/works/video/ai-streetscape.webp",
+        video: "assets/works/video/ai-streetscape.mp4",
+        title: "Streetscape and playground",
+        alt: "AI video: townhome street frontage moving to a playground"
       }
     ],
     sections: [
       {
         title: "What’s inside",
         list: [
-          "Eight lettered items, A to H: dining tables, cabinets, chairs, fencing and planters",
-          "Product image, name, short description and price for each",
-          "Branding: GreenLeaf Village logo, “Collection 01” and a calm green palette",
-          "A render of the community office alongside the list"
+          "Vertical 9:16 videos sized for Instagram and Facebook Reels",
+          "Generated with AI video tools, then trimmed and compressed for the web",
+          "Design center, finishes, community and amenity scenes"
         ]
       }
     ],
     tags: [
-      "Buying list",
-      "Layout",
-      "Branding",
-      "Interior styling"
-    ]
-  },
-  {
-    id: "weekly-reporting",
-    cat: "reporting",
-    title: "Weekly Performance Reports",
-    blurb: "A one-page weekly snapshot of reach, engagement, top content and comments — turned into clear next steps.",
-    intro: "A one-page weekly snapshot that turns scattered platform numbers into decisions.",
-    images: [
-      {
-        src: "assets/analytics-workspace.webp",
-        alt: "Social media and website analytics across Instagram, Facebook and Google Analytics"
-      }
+      "AI video",
+      "Generative AI",
+      "Real estate",
+      "Reels",
+      "Social content"
     ],
-    sections: [
-      {
-        title: "The challenge",
-        text: "Insights were spread across Instagram, Facebook and website analytics, so it was hard to tell what was working or where to put effort next."
-      },
-      {
-        title: "What I built",
-        steps: [
-          "A weekly template pulling reach, engagement and website activity into one view.",
-          "A top-content review showing which posts and formats perform best.",
-          "A comments and inquiries check to catch questions that need a reply.",
-          "A short “what to do next week” summary with each report."
-        ]
-      },
-      {
-        title: "What it delivers",
-        cards: [
-          "One clear weekly view of performance",
-          "Evidence for what to post more of",
-          "Quicker, calmer planning meetings",
-          "Questions and comments never overlooked"
-        ]
-      }
-    ],
-    tags: [
-      "Meta Business Suite",
-      "Google Analytics",
-      "Google Sheets"
-    ]
+    sub: "AI Generated Videos",
+    why: {
+      hook: "Show the experience before there is anything to film.",
+      reason: "With a small budget and no film crew, AI-generated footage lets me show moments like choosing finishes at a design center or walking a finished community. Each clip opens on the place itself, not on text, to stop the scroll. They are concept visuals, not footage of a finished site."
+    }
   },
   {
     id: "arcana-proposal",
@@ -461,7 +415,102 @@ var PROJECTS = [
       "Scope of work",
       "Delivery schedule",
       "Terms"
-    ]
+    ],
+    sub: "Graphic Design",
+    why: {
+      hook: "Make the scope clear on the first read.",
+      reason: "A proposal that is easy to scan gets approved faster. Scope, schedule and terms each get their own clean page, so there is less back-and-forth before the client says yes."
+    }
+  },
+  {
+    id: "greenleaf-home-collections",
+    cat: "docs",
+    title: "GreenLeaf Village — Home Collections",
+    blurb: "A furniture buying list for a residential community, laid out as a branded one-page sheet in two versions.",
+    intro: "A “Curated Living: Home Collections” sheet for GreenLeaf Village: eight lettered products with name, description and price beside a render of the community office. Shown in two layout versions.",
+    unit: "versions",
+    note: "Preview only — the original files are not available to download.",
+    cover: {
+      src: "assets/works/collection-1.webp",
+      alt: "GreenLeaf Village Home Collections furniture buying list"
+    },
+    images: [
+      {
+        src: "assets/works/collection-1.webp",
+        alt: "Home Collections buying list, version 1: eight furniture items A to H with prices"
+      },
+      {
+        src: "assets/works/collection-2.webp",
+        alt: "Home Collections buying list, version 2: compact layout with the same eight items"
+      }
+    ],
+    sections: [
+      {
+        title: "What’s inside",
+        list: [
+          "Eight lettered items, A to H: dining tables, cabinets, chairs, fencing and planters",
+          "Product image, name, short description and price for each",
+          "Branding: GreenLeaf Village logo, “Collection 01” and a calm green palette",
+          "A render of the community office alongside the list"
+        ]
+      }
+    ],
+    tags: [
+      "Buying list",
+      "Layout",
+      "Branding",
+      "Interior styling"
+    ],
+    sub: "Graphic Design",
+    why: {
+      hook: "Make choosing easy.",
+      reason: "Grouping selections by collection and room means buyers compare like with like instead of facing one long list. Layout and branding do the sorting for them."
+    }
+  },
+  {
+    id: "arcana-furniture-list",
+    cat: "docs",
+    title: "Furniture & Styling Selections",
+    blurb: "A curated furnishing package for a glamping tent project: buying list, colour palette and design intent.",
+    intro: "A furniture and styling selection for a glamping tent project (June 2026): a clean buying list with supplier, price and product image, plus the palette and mood that guide the choices.",
+    unit: "pages",
+    note: "Preview only — the original file is not available to download.",
+    cover: {
+      src: "assets/works/furniture-1.webp",
+      alt: "Furniture and styling selections, page 1"
+    },
+    images: [
+      {
+        src: "assets/works/furniture-1.webp",
+        alt: "Furniture buying list page 1: cover, buying list and material palette"
+      },
+      {
+        src: "assets/works/furniture-2.webp",
+        alt: "Furniture buying list page 2: seating, decking, palette and mood boards"
+      }
+    ],
+    sections: [
+      {
+        title: "What’s inside",
+        list: [
+          "A cover and design intent for the guest experience",
+          "A buying list with product, description, supplier, price and image",
+          "A warm, natural colour palette inspired by Muskoka",
+          "Mood and inspiration boards"
+        ]
+      }
+    ],
+    tags: [
+      "Interior styling",
+      "Buying list",
+      "Palette",
+      "Mood board"
+    ],
+    sub: "Graphic Design",
+    why: {
+      hook: "A buying list that looks like a mood board.",
+      reason: "A plain list of items is hard to picture. Showing each piece next to the palette lets the client see how the room fits together before they commit."
+    }
   },
   {
     id: "stamp-brand-boards",
@@ -515,7 +564,62 @@ var PROJECTS = [
       "Brand board",
       "Mock-ups"
     ],
-    teaser: 3
+    sub: "Branding",
+    why: {
+      hook: "The whole brand on one board.",
+      reason: "A single board with the logo, palette, voice and mock-ups lets a client judge the direction at a glance and keeps everyone designing from the same page."
+    }
+  },
+  {
+    id: "greenleaf-village",
+    cat: "design",
+    title: "GreenLeaf Village Signage & Banners",
+    blurb: "Roadside signs and fabric banners for a residential community, shown as flat artwork and on-site mockups.",
+    intro: "Signage and banner designs for GreenLeaf Village, built around the line “Plant Yourself Here.” and a calm green-and-gold palette.",
+    cover: {
+      src: "assets/works/greenleaf-1.webp",
+      alt: "GreenLeaf Village roadside sign mockup"
+    },
+    images: [
+      {
+        src: "assets/works/greenleaf-1.webp",
+        alt: "Two GreenLeaf Village sign panels beside a country road"
+      },
+      {
+        src: "assets/works/greenleaf-2.webp",
+        alt: "GreenLeaf Village sign panels in a field"
+      },
+      {
+        src: "assets/works/greenleaf-3.webp",
+        alt: "GreenLeaf Village fabric pole banners, 2.5 ft by 8 ft"
+      },
+      {
+        src: "assets/works/greenleaf-4.webp",
+        alt: "GreenLeaf Village sign artwork, flat"
+      }
+    ],
+    sections: [
+      {
+        title: "What’s included",
+        list: [
+          "Two sign panels with a shaped leaf-inspired top edge",
+          "Fabric pole banners, 2.5 ft × 8 ft",
+          "Flat artwork alongside on-site mockups",
+          "Consistent messaging: spacious homes, 3+ acre lots, established community and natural surroundings"
+        ]
+      }
+    ],
+    tags: [
+      "Signage",
+      "Banners",
+      "Branding",
+      "Mockups"
+    ],
+    sub: "Signage & Banners",
+    why: {
+      hook: "Readable from a distance, approved before print.",
+      reason: "Signage only works if people can read it quickly. I design for large, simple type and show it in mock-ups first, so the client can approve how it looks in place before anything is printed."
+    }
   },
   {
     id: "dino-activity-book",
@@ -552,7 +656,12 @@ var PROJECTS = [
       "Book design",
       "Layout",
       "Kids’ learning"
-    ]
+    ],
+    sub: "Book Design",
+    why: {
+      hook: "Big, friendly, easy to trace.",
+      reason: "Young learners need large letters, plenty of space and a fun theme to keep going. The layout is built around those three things."
+    }
   },
   {
     id: "printed-activity-books",
@@ -590,7 +699,12 @@ var PROJECTS = [
       "Layout",
       "Print",
       "Kids’ learning"
-    ]
+    ],
+    sub: "Book Design",
+    why: {
+      hook: "Show the real thing.",
+      reason: "Printed mock-ups help buyers picture the finished book in their hands, which makes the product easier to trust than a flat screen design."
+    }
   },
   {
     id: "anime-coloring-books",
@@ -632,47 +746,12 @@ var PROJECTS = [
       "Book design",
       "Mock-ups",
       "Print"
-    ]
-  },
-  {
-    id: "arcana-furniture-list",
-    cat: "docs",
-    title: "Furniture & Styling Selections",
-    blurb: "A curated furnishing package for a glamping tent project: buying list, colour palette and design intent.",
-    intro: "A furniture and styling selection for a glamping tent project (June 2026): a clean buying list with supplier, price and product image, plus the palette and mood that guide the choices.",
-    unit: "pages",
-    note: "Preview only — the original file is not available to download.",
-    cover: {
-      src: "assets/works/furniture-1.webp",
-      alt: "Furniture and styling selections, page 1"
-    },
-    images: [
-      {
-        src: "assets/works/furniture-1.webp",
-        alt: "Furniture buying list page 1: cover, buying list and material palette"
-      },
-      {
-        src: "assets/works/furniture-2.webp",
-        alt: "Furniture buying list page 2: seating, decking, palette and mood boards"
-      }
     ],
-    sections: [
-      {
-        title: "What’s inside",
-        list: [
-          "A cover and design intent for the guest experience",
-          "A buying list with product, description, supplier, price and image",
-          "A warm, natural colour palette inspired by Muskoka",
-          "Mood and inspiration boards"
-        ]
-      }
-    ],
-    tags: [
-      "Interior styling",
-      "Buying list",
-      "Palette",
-      "Mood board"
-    ]
+    sub: "Book Design",
+    why: {
+      hook: "The cover sells the book.",
+      reason: "Each cover has one clear focal point, a bold title and a strong style, so the book stands out in a small thumbnail."
+    }
   },
   {
     id: "event-invitations",
@@ -708,7 +787,139 @@ var PROJECTS = [
       "Invitations",
       "Layout",
       "Event graphics"
-    ]
+    ],
+    sub: "Invitations",
+    why: {
+      hook: "The celebration front and center.",
+      reason: "The guest of honor, the date and the place are the first things you see. Bright colors set the party mood before anyone reads the details."
+    }
+  },
+  {
+    id: "recruitment-posters",
+    cat: "design",
+    title: "Recruitment Posters & Banners",
+    blurb: "Hiring graphics for an office-based online English teaching centre: a requirements poster, a call-to-action post and a team banner.",
+    intro: "Recruitment graphics for an office-based online English teaching centre, designed to be clear, friendly and easy to act on.",
+    cover: {
+      src: "assets/works/recruit-1.webp",
+      alt: "Be an Office Based Online English Teacher post"
+    },
+    images: [
+      {
+        src: "assets/works/recruit-1.webp",
+        alt: "Be an Office Based Online English Teacher — send us a message now"
+      },
+      {
+        src: "assets/works/recruit-2.webp",
+        alt: "Hiring poster listing requirements for an online English teacher"
+      },
+      {
+        src: "assets/works/recruit-3.webp",
+        alt: "Be one of us team banner with contact details"
+      }
+    ],
+    sections: [
+      {
+        title: "What’s included",
+        list: [
+          "A requirements poster with a clear checklist and a “Be part of our growing family!” closer",
+          "A “Send us a message now!” post with a clear call to action",
+          "A “Be one of us!” team banner with contact details and the centre’s mascot logo"
+        ]
+      }
+    ],
+    tags: [
+      "Recruitment",
+      "Social graphics",
+      "Banner"
+    ],
+    sub: "Social Graphics",
+    why: {
+      hook: "One role, one clear way to apply.",
+      reason: "A hiring post has seconds to work. Each poster leads with the role and finishes with how to apply, with nothing extra in between."
+    }
+  },
+  {
+    id: "jonis-logo",
+    cat: "design",
+    title: "Jonis Airline Ticketing Logo",
+    blurb: "A logo that combines a location pin and an aircraft in one orange-to-blue mark.",
+    intro: "A logo for Jonis Airline Ticketing: a location pin and an aircraft combined in one mark, in an orange-to-blue gradient.",
+    cover: {
+      src: "assets/works/logo-1.webp",
+      alt: "Jonis Airline Ticketing logo",
+      fit: "contain",
+      bg: "#ffffff"
+    },
+    images: [
+      {
+        src: "assets/works/logo-1.webp",
+        alt: "Jonis Airline Ticketing logo: a location pin with an aircraft"
+      }
+    ],
+    sections: [
+      {
+        title: "The idea",
+        text: "A map pin says destination and a swooping aircraft says travel. Together they communicate an airline ticketing service in a single, easy-to-recognise symbol."
+      }
+    ],
+    tags: [
+      "Logo",
+      "Branding",
+      "Travel"
+    ],
+    sub: "Branding",
+    why: {
+      hook: "A simple mark that works small.",
+      reason: "A travel brand has to be recognizable on a ticket, an app icon or a bag tag. I kept the mark simple so it holds up at any size."
+    }
+  },
+  {
+    id: "weekly-reporting",
+    cat: "reporting",
+    title: "Weekly Performance Reports",
+    blurb: "A one-page weekly snapshot of reach, engagement, top content and comments — turned into clear next steps.",
+    intro: "A one-page weekly snapshot that turns scattered platform numbers into decisions.",
+    images: [
+      {
+        src: "assets/analytics-workspace.webp",
+        alt: "Social media and website analytics across Instagram, Facebook and Google Analytics"
+      }
+    ],
+    sections: [
+      {
+        title: "The challenge",
+        text: "Insights were spread across Instagram, Facebook and website analytics, so it was hard to tell what was working or where to put effort next."
+      },
+      {
+        title: "What I built",
+        steps: [
+          "A weekly template pulling reach, engagement and website activity into one view.",
+          "A top-content review showing which posts and formats perform best.",
+          "A comments and inquiries check to catch questions that need a reply.",
+          "A short “what to do next week” summary with each report."
+        ]
+      },
+      {
+        title: "What it delivers",
+        cards: [
+          "One clear weekly view of performance",
+          "Evidence for what to post more of",
+          "Quicker, calmer planning meetings",
+          "Questions and comments never overlooked"
+        ]
+      }
+    ],
+    tags: [
+      "Meta Business Suite",
+      "Google Analytics",
+      "Google Sheets"
+    ],
+    sub: "Weekly Reports",
+    why: {
+      hook: "Same layout every week, so changes jump out.",
+      reason: "When the report always looks the same, the eye goes straight to what moved. It takes a manager a minute to read, not twenty."
+    }
   },
   {
     id: "admin-operations",
@@ -751,76 +962,11 @@ var PROJECTS = [
       "Gmail",
       "Google Sheets",
       "Meeting notes"
-    ]
-  },
-  {
-    id: "recruitment-posters",
-    cat: "design",
-    title: "Recruitment Posters & Banners",
-    blurb: "Hiring graphics for an office-based online English teaching centre: a requirements poster, a call-to-action post and a team banner.",
-    intro: "Recruitment graphics for an office-based online English teaching centre, designed to be clear, friendly and easy to act on.",
-    cover: {
-      src: "assets/works/recruit-1.webp",
-      alt: "Be an Office Based Online English Teacher post"
-    },
-    images: [
-      {
-        src: "assets/works/recruit-1.webp",
-        alt: "Be an Office Based Online English Teacher — send us a message now"
-      },
-      {
-        src: "assets/works/recruit-2.webp",
-        alt: "Hiring poster listing requirements for an online English teacher"
-      },
-      {
-        src: "assets/works/recruit-3.webp",
-        alt: "Be one of us team banner with contact details"
-      }
     ],
-    sections: [
-      {
-        title: "What’s included",
-        list: [
-          "A requirements poster with a clear checklist and a “Be part of our growing family!” closer",
-          "A “Send us a message now!” post with a clear call to action",
-          "A “Be one of us!” team banner with contact details and the centre’s mascot logo"
-        ]
-      }
-    ],
-    tags: [
-      "Recruitment",
-      "Social graphics",
-      "Banner"
-    ]
-  },
-  {
-    id: "jonis-logo",
-    cat: "design",
-    title: "Jonis Airline Ticketing Logo",
-    blurb: "A logo that combines a location pin and an aircraft in one orange-to-blue mark.",
-    intro: "A logo for Jonis Airline Ticketing: a location pin and an aircraft combined in one mark, in an orange-to-blue gradient.",
-    cover: {
-      src: "assets/works/logo-1.webp",
-      alt: "Jonis Airline Ticketing logo",
-      fit: "contain",
-      bg: "#ffffff"
-    },
-    images: [
-      {
-        src: "assets/works/logo-1.webp",
-        alt: "Jonis Airline Ticketing logo: a location pin with an aircraft"
-      }
-    ],
-    sections: [
-      {
-        title: "The idea",
-        text: "A map pin says destination and a swooping aircraft says travel. Together they communicate an airline ticketing service in a single, easy-to-recognise symbol."
-      }
-    ],
-    tags: [
-      "Logo",
-      "Branding",
-      "Travel"
-    ]
+    sub: "Executive Support",
+    why: {
+      hook: "A calm calendar and a clear inbox.",
+      reason: "Good admin work is mostly invisible: written processes, tidy calendars and meeting notes that turn into action items, so the boss can focus on decisions."
+    }
   }
 ];

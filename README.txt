@@ -46,3 +46,10 @@ Folders
 4. PUBLISH
    Upload the whole folder to any static host (Netlify, GitHub Pages, etc.).
    Keep index.html at the top level.
+
+CATEGORIES, SUB-CATEGORIES AND "WHY I MADE IT"
+In js/works-data.js each work has:
+  cat  - the main category (Social Media, Proposals & Listings, Graphic Design...)
+  sub  - the sub-category shown next to it and as a second filter row
+  why  - { hook, reason }: the "Why I made it this way" box in the case study
+Edit the wording there any time; the page updates automatically.

@@ -36,21 +36,26 @@
     if (reduceMotion) {
       /* calm fallback: an ordinary swipeable row */
       car.classList.add('carousel--native');
+      $('#work').classList.add('pin--static');
       var stepN = function () { return (slides[0] ? slides[0].getBoundingClientRect().width : 300) + gap; };
       prev.addEventListener('click', function () { car.scrollBy({ left: -stepN() * 2 }); });
       next.addEventListener('click', function () { car.scrollBy({ left: stepN() * 2 }); });
     } else {
-      var speed = (typeof CONFIG.carouselScroll === 'number') ? CONFIG.carouselScroll : 0.9;
+      var speed = (typeof CONFIG.carouselScroll === 'number' && CONFIG.carouselScroll > 0) ? CONFIG.carouselScroll : 1.4;
       var cur = 0, target = 0, manual = 0, max = 0, raf = 0;
       var geo = [];
       var clamp = function (v, a, b) { return Math.max(a, Math.min(b, v)); };
       var measure = function () {
         max = Math.max(0, belt.scrollWidth - car.clientWidth);
+        pin.style.height = Math.round(max / Math.max(0.2, speed) + window.innerHeight) + 'px';
         geo = slides.map(function (s) { return { l: s.offsetLeft, w: s.offsetWidth, img: $('img', s) }; });
       };
+      var pin = $('#work');
+      var travel = 1;
       var base = function () {
-        var r = car.getBoundingClientRect();
-        return Math.max(0, (window.innerHeight * 0.8 - r.top) * speed);
+        var r = pin.getBoundingClientRect();
+        var span = Math.max(1, pin.offsetHeight - window.innerHeight);
+        return clamp(-r.top / span, 0, 1) * max;
       };
       var compute = function () { target = clamp(base() + manual, 0, max); };
       var render = function () {
