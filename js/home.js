@@ -31,7 +31,7 @@
     var prev = $('#carPrev'), next = $('#carNext'), bar = $('#carBar');
     var slides = $$('.slide', belt);
     var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var gap = 28;
+    var gap = 60;
 
     if (reduceMotion) {
       /* calm fallback: an ordinary swipeable row */
@@ -48,7 +48,7 @@
       var measure = function () {
         max = Math.max(0, belt.scrollWidth - car.clientWidth);
         pin.style.height = Math.round(max / Math.max(0.2, speed) + window.innerHeight) + 'px';
-        geo = slides.map(function (s) { return { l: s.offsetLeft, w: s.offsetWidth, img: $('img', s) }; });
+        geo = slides.map(function (s) { return { l: s.offsetLeft, w: s.offsetWidth, img: $('img', s), frame: $('.slide__frame', s), cap: $('.slide__cap', s) }; });
       };
       var pin = $('#work');
       var travel = 1;
@@ -66,9 +66,15 @@
         var vw = car.clientWidth;
         for (var k = 0; k < geo.length; k++) {
           var g = geo[k], left = g.l - cur;
-          if (left > vw + 80 || left + g.w < -80) continue;
-          var norm = (left + g.w / 2 - vw / 2) / vw;
-          g.img.style.transform = 'translate3d(' + (norm * -34).toFixed(1) + 'px,0,0)';
+          if (left > vw + 200 || left + g.w < -200) continue;
+          var dist = (left + g.w / 2 - vw / 2) / (g.w * 1.3);      /* 0 = in the middle, 1 = one circle away */
+          var t = Math.max(0, 1 - Math.abs(dist));
+          var e = t * t * (3 - 2 * t);
+          var fs = g.frame.style;
+          fs.setProperty('--s', (0.72 + 0.5 * e).toFixed(3));
+          fs.setProperty('--o', (0.5 + 0.5 * e).toFixed(3));
+          g.cap.style.setProperty('--c', Math.max(0, (e - 0.55) / 0.45).toFixed(3));
+          g.img.style.transform = 'translate3d(' + (Math.max(-1, Math.min(1, dist)) * -22).toFixed(1) + 'px,0,0)';
         }
         if (bar) bar.style.transform = 'scaleX(' + (max ? (cur / max).toFixed(4) : 0) + ')';
         prev.disabled = cur < 4 && target < 4;
@@ -108,6 +114,18 @@
       belt.addEventListener('click', function (e) { if (moved) { e.preventDefault(); moved = false; } });
     }
   }
+
+  /* ---------- Service cards: a tap lifts one card (hover does it on desktop) ---------- */
+  var svcs = $$('.svc');
+  svcs.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var on = c.classList.contains('is-up');
+      svcs.forEach(function (o) { o.classList.remove('is-up'); });
+      if (!on) c.classList.add('is-up');
+    });
+    c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); c.click(); } });
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest('.svc')) svcs.forEach(function (o) { o.classList.remove('is-up'); }); });
 
   /* ---------- Active link highlight ---------- */
   var links = $('#navLinks');

@@ -19,7 +19,7 @@
   }
 
   $('#edu').innerHTML = EDUCATION.map(function (e, i) {
-    return '<article class="edu__item reveal" style="--d:' + (i * 0.08) + 's"><p class="edu__years">' + esc(e.years) + '</p><h3>' + esc(e.title) + '</h3><p>' + esc(e.school) + '</p></article>';
+    return '<article class="edu__item reveal" style="--d:' + (i * 0.08) + 's">' + (e.years ? '<p class="edu__years">' + esc(e.years) + '</p>' : '') + '<h3>' + esc(e.title) + '</h3><p>' + esc(e.school) + '</p></article>';
   }).join('');
 
   L.reveal(L.$$('.job, .tool, .edu__item'));

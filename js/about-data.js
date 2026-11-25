@@ -29,5 +29,5 @@ var SKILLS = ['Social media management', 'Content production', 'Reels & video ed
 
 /* Add as many entries as you like — years, school/university, program */
 var EDUCATION = [
-  { years: 'Year – Year', title: '[Your degree or program]', school: '[School or university name]' }
+  { years: '', title: 'Bachelor of Science in Computer Science', school: 'STI West Negros University' }
 ];
