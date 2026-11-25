@@ -49,7 +49,7 @@ Folders
 
 CATEGORIES, SUB-CATEGORIES AND "WHY I MADE IT"
 In js/works-data.js each work has:
-  cat  - the main category (Social Media, Proposals & Listings, Graphic Design...)
+  cat  - the main category (Social Media, Graphic Design, Web Design, AI Automation). A category with no works stays hidden until you add one.
   sub  - the sub-category shown next to it and as a second filter row
   why  - { hook, reason }: the "Why I made it this way" box in the case study
 Edit the wording there any time; the page updates automatically.

@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Luz Somodio — Virtual Assistant</title>
   <meta name="description" content="Luz Somodio is a virtual assistant helping brands stay organized with digital operations, social media, AI automation and admin support.">
-  <meta name="theme-color" content="#3f6e56">
+  <meta name="theme-color" content="#1f1f19">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/works.css">
   <link rel="stylesheet" href="css/home.css">
   <script>
     /* Set the theme before first paint so there is no flash */
     (function () {
       var t = null;
       try { t = localStorage.getItem('luz-theme'); } catch (e) {}
-      if (!t) t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      if (!t) t = 'dark';
       document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
@@ -34,8 +35,6 @@
         <a href="featured-works.html">Featured Works</a>
         <a href="about.html">About</a>
         <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#process">Process</a>
         <a href="#contact" class="nav__cta">Let’s Talk</a>
       </nav>
       <div class="nav__tools">
@@ -53,204 +52,88 @@
   <main id="main">
     <!-- ============ HERO (short introduction) ============ -->
     <section class="hero" id="top">
-      <div class="wrap hero__grid">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__cut" id="heroFrame">
+        <img id="heroLuz" src="assets/luz-hero-1.webp" alt="Illustration of Luz holding a laptop" width="822" height="887">
+      </div>
+      <div class="wrap hero__inner">
         <div class="hero__copy">
           <p class="eyebrow reveal">Virtual Assistant · Digital Operations</p>
-          <h1 class="reveal" style="--d:.08s">Hi, I’m <em>Luz</em>.</h1>
+          <h1 class="reveal" style="--d:.08s">Hi, I’m Luz. Let’s bring <em>calm</em> to your busy brand.</h1>
           <p class="lead reveal" style="--d:.16s">I’m a virtual assistant for design, architecture and real estate brands. I handle social media and content, inbox and scheduling, and AI-powered workflows — so you can focus on the work only you can do.</p>
           <div class="hero__actions reveal" style="--d:.24s">
             <a class="btn btn--primary" href="#work">See my work</a>
             <a class="btn btn--ghost" href="#contact">Let’s talk</a>
           </div>
-          <ul class="hero__facts reveal" style="--d:.32s">
-            <li><strong>Social Media</strong><span>Content &amp; community</span></li>
-            <li><strong>AI Automation</strong><span>n8n · Claude · CRM</span></li>
-            <li><strong>Admin Support</strong><span>Inbox · calendar · reports</span></li>
-          </ul>
+          <p class="hero__avail reveal" style="--d:.3s"><span class="dot"></span> Available for new projects</p>
         </div>
-
-        <div class="hero__visual reveal" style="--d:.12s">
-          <div class="frame" id="heroFrame">
-            <img class="frame__bg frame__bg--light" src="assets/bg-light.webp" alt="" width="834" height="941">
-            <img class="frame__bg frame__bg--dark" src="assets/bg-dark.webp" alt="" width="830" height="941">
-            <img class="frame__luz" id="heroLuz" src="assets/luz-hero-1.webp" alt="Illustration of Luz holding a laptop" width="822" height="887">
-          </div>
-          <div class="chip chip--a"><span class="dot"></span> Available for new projects</div>
-          <div class="chip chip--b">Organized · Communicated · Supported</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PROJECTS CAROUSEL (random order) ============ -->
-    <section class="pin" id="work">
-      <div class="pin__stick">
-      <div class="wrap">
-        <header class="section__head section__head--row carousel__head">
-          <div>
-            <p class="eyebrow reveal">Featured Works</p>
-            <h2 class="reveal" style="--d:.06s">Work I’ve done</h2>
-          </div>
-          <div class="carousel__ctrl reveal" style="--d:.1s">
-            <button class="carousel__btn" id="carPrev" type="button" aria-label="Previous projects">‹</button>
-            <button class="carousel__btn" id="carNext" type="button" aria-label="Next projects">›</button>
-            <a class="btn btn--ghost" href="featured-works.html"><span>View all <span id="worksCount">18</span> projects →</span></a>
-          </div>
-        </header>
-      </div>
-      <div class="carousel" id="carousel" role="region" aria-roledescription="carousel" aria-label="Featured works, in a different order each visit" tabindex="0">
-        <div class="carousel__belt" id="carouselTrack"></div>
-      </div>
-      <div class="wrap">
-        <div class="carousel__bar" aria-hidden="true"><span id="carBar"></span></div>
-        <p class="carousel__hint">Scroll the page and the projects glide along — or drag, swipe or use the arrows. Tap a project to see it up close.</p>
-      </div>
       </div>
     </section>
 
     <!-- ============ SERVICES ============ -->
-    <section class="section section--alt" id="services">
+    <section class="section" id="services">
       <div class="wrap">
-        <header class="section__head">
+        <header class="section__head section__head--center">
           <p class="eyebrow reveal">Services</p>
-          <h2 class="reveal" style="--d:.06s">How I can support you</h2>
+          <h2 class="reveal" style="--d:.06s">How I can <em>support</em> you</h2>
           <p class="reveal" style="--d:.12s">Pick one, or let me run the whole digital back-office. Everything is tailored to how your team already works.</p>
         </header>
-
-        <div class="cards">
-          <article class="card reveal">
-            <div class="card__img"><img src="assets/ai-automation.webp" alt="n8n workflow connecting Gmail, Claude and HubSpot for lead management" width="1672" height="941" loading="lazy"></div>
-            <div class="card__body">
-              <h3>AI Automation</h3>
-              <p>Lead capture, scoring and follow-up workflows built with n8n and Claude — connected to your inbox, CRM and spreadsheets.</p>
-              <ul class="tags"><li>n8n</li><li>Claude</li><li>HubSpot</li><li>Gmail</li></ul>
-            </div>
+        <div class="svcs">
+          <article class="svc reveal" style="--d:0.00s" tabindex="0">
+            <span class="svc__n">01</span>
+            <h3>AI Automation</h3>
+            <p>Lead capture, scoring and follow-up workflows built with n8n and Claude, connected to your inbox, CRM and spreadsheets.</p>
+            <ul class="tags"><li>n8n</li><li>Claude</li><li>HubSpot</li><li>Gmail</li></ul>
           </article>
-          <article class="card reveal" style="--d:.08s">
-            <div class="card__img"><img src="assets/social-media.webp" alt="Social media content calendar, Canva designs and Instagram and Facebook previews" width="1670" height="942" loading="lazy"></div>
-            <div class="card__body">
-              <h3>Social Media &amp; Content</h3>
-              <p>Content planning, Canva design, scheduling and community management that keeps your brand consistent and your feed alive.</p>
-              <ul class="tags"><li>Instagram</li><li>Facebook</li><li>Canva</li><li>Calendar</li></ul>
-            </div>
-          </article>
-          <article class="card reveal" style="--d:.16s">
-            <div class="card__img"><img src="assets/admin-support.webp" alt="Calendar, inbox, weekly report and to-do notebook on a styled desk" width="1670" height="941" loading="lazy"></div>
-            <div class="card__body">
-              <h3>Admin &amp; Operations</h3>
-              <p>Inbox and calendar management, meeting prep, project tracking and weekly reporting — the details handled before you ask.</p>
-              <ul class="tags"><li>Gmail</li><li>Calendar</li><li>Reports</li><li>Tracking</li></ul>
-            </div>
-          </article>
-        </div>
-
-        <div class="mini">
-          <div class="mini__item reveal">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-            <h4>SEO &amp; Website Content</h4>
-            <p>Page optimization, content inventories and on-page SEO.</p>
-          </div>
-          <div class="mini__item reveal" style="--d:.06s">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18M6 16V9m6 7V5m6 11v-4"/></svg>
-            <h4>Reporting &amp; Analytics</h4>
-            <p>Clear weekly snapshots of reach, engagement and leads.</p>
-          </div>
-          <div class="mini__item reveal" style="--d:.12s">
-            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c.6-3.2 3-5 6-5s5.4 1.8 6 5M17 11l1.8 1.8L22 9.5"/></svg>
-            <h4>Hiring &amp; Onboarding</h4>
-            <p>Role posts, screening support and smooth first-week onboarding.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SERVICE FEES ============ -->
-    <section class="section" id="pricing">
-      <div class="wrap">
-        <header class="section__head">
-          <p class="eyebrow reveal">Service Fees</p>
-          <h2 class="reveal" style="--d:.06s">Simple, transparent rates</h2>
-          <p class="reveal" style="--d:.12s">All prices are in USD. Your final quote depends on the scope of work — tell me what you need and I’ll recommend the best fit.</p>
-        </header>
-
-        <div class="pricing">
-          <article class="plan reveal">
-            <p class="plan__tag">Admin Support</p>
-            <h3>Admin &amp; Operations</h3>
-            <div class="option">
-              <span class="option__label">Monthly retainer</span>
-              <p class="price">$1,000 – $1,500 <small>/ month</small></p>
-              <p class="option__sub">Depends on the scope of work.</p>
-            </div>
-            <ul class="plan__list">
-              <li>Inbox &amp; calendar management</li>
-              <li>Meeting prep &amp; follow-ups</li>
-              <li>Project &amp; invoice tracking</li>
-              <li>Weekly reporting</li>
-            </ul>
-            <a class="btn btn--ghost btn--block plan__cta" data-email-link data-subject="Admin &amp; Operations inquiry" href="#">Inquire about this</a>
-          </article>
-
-          <article class="plan reveal" style="--d:.08s">
-            <p class="plan__tag">Social Media</p>
+          <article class="svc reveal" style="--d:0.06s" tabindex="0">
+            <span class="svc__n">02</span>
             <h3>Social Media &amp; Content</h3>
-            <div class="option">
-              <span class="option__label">One-month content package</span>
-              <p class="price">$300 – $400 <small>/ one month</small></p>
-              <p class="option__sub">Depends on how complex the work is — the more automations, the higher the rate.</p>
-            </div>
-            <div class="option">
-              <span class="option__label">Monthly retainer</span>
-              <p class="price">$1,200 <small>/ month</small></p>
-              <p class="option__sub">Ongoing monthly support.</p>
-            </div>
-            <ul class="plan__list">
-              <li>Content planning &amp; calendar</li>
-              <li>Canva design</li>
-              <li>Scheduling &amp; community management</li>
-            </ul>
-            <a class="btn btn--ghost btn--block plan__cta" data-email-link data-subject="Social Media &amp; Content inquiry" href="#">Inquire about this</a>
+            <p>Content planning, Canva design, scheduling and community management that keeps your brand consistent and your feed alive.</p>
+            <ul class="tags"><li>Instagram</li><li>Facebook</li><li>Canva</li><li>Reels</li></ul>
           </article>
-
-          <article class="plan reveal" style="--d:.16s">
-            <p class="plan__tag">Website &amp; AI</p>
-            <h3>Website Design &amp; AI Automation</h3>
-            <div class="option">
-              <span class="option__label">Project rate</span>
-              <p class="price">From $500 <small>/ project</small></p>
-              <p class="option__sub">Final quote after we scope the work.</p>
-            </div>
-            <div class="option">
-              <span class="option__label">Optional maintenance</span>
-              <p class="price">$1,350 <small>/ month</small></p>
-              <p class="option__sub">Keeps your site and automations running smoothly.</p>
-            </div>
-            <ul class="plan__list">
-              <li>Website design</li>
-              <li>AI workflows with n8n &amp; Claude</li>
-              <li>CRM, inbox &amp; spreadsheet connections</li>
-            </ul>
-            <a class="btn btn--ghost btn--block plan__cta" data-email-link data-subject="Website &amp; AI Automation inquiry" href="#">Inquire about this</a>
+          <article class="svc reveal" style="--d:0.12s" tabindex="0">
+            <span class="svc__n">03</span>
+            <h3>Admin &amp; Operations</h3>
+            <p>Inbox and calendar management, meeting prep, project tracking and weekly reporting. The details handled before you ask.</p>
+            <ul class="tags"><li>Gmail</li><li>Calendar</li><li>Reports</li><li>Tracking</li></ul>
+          </article>
+          <article class="svc reveal" style="--d:0.18s" tabindex="0">
+            <span class="svc__n">04</span>
+            <h3>SEO &amp; Website Content</h3>
+            <p>Page optimization, content inventories and on-page SEO that help the right people find you.</p>
+            <ul class="tags"><li>SEO</li><li>Content</li><li>Websites</li></ul>
+          </article>
+          <article class="svc reveal" style="--d:0.24s" tabindex="0">
+            <span class="svc__n">05</span>
+            <h3>Reporting &amp; Analytics</h3>
+            <p>Clear weekly snapshots of reach, engagement and leads, so every decision has numbers behind it.</p>
+            <ul class="tags"><li>Meta Insights</li><li>Weekly reports</li></ul>
+          </article>
+          <article class="svc reveal" style="--d:0.30s" tabindex="0">
+            <span class="svc__n">06</span>
+            <h3>Hiring &amp; Onboarding</h3>
+            <p>Role posts, screening support and smooth first-week onboarding for new teammates.</p>
+            <ul class="tags"><li>Job posts</li><li>Screening</li><li>Onboarding</li></ul>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ PROCESS ============ -->
-    <section class="section" id="process">
-      <div class="wrap">
-        <header class="section__head">
-          <p class="eyebrow reveal">Process</p>
-          <h2 class="reveal" style="--d:.06s">Simple, steady, supported</h2>
-        </header>
-        <ol class="steps">
-          <li class="step reveal"><span class="step__n">01</span><h3>Discover</h3><p>We talk through your goals, tools and where time is slipping away.</p></li>
-          <li class="step reveal" style="--d:.07s"><span class="step__n">02</span><h3>Map</h3><p>I outline a lean plan — what to organize, automate and hand off first.</p></li>
-          <li class="step reveal" style="--d:.14s"><span class="step__n">03</span><h3>Build</h3><p>Systems, content and workflows go live, tested and documented.</p></li>
-          <li class="step reveal" style="--d:.21s"><span class="step__n">04</span><h3>Support</h3><p>Ongoing check-ins and weekly reports so nothing falls through.</p></li>
-        </ol>
+    <!-- ============ FEATURED WORKS (same big category rows as the Featured Works page) ============ -->
+    <section class="projects" id="work">
+      <header class="section__head section__head--center">
+        <p class="eyebrow reveal">Featured Works</p>
+        <h2 class="reveal" style="--d:.06s">Work I’ve <em>done</em></h2>
+        <p class="reveal" style="--d:.12s">Pick a category, swipe through the work, and open any piece to see the story behind it. <a class="link" href="featured-works.html">View the full Featured Works page →</a></p>
+      </header>
+      <div class="filters" id="filters">
+        <div class="wrap filters__inner" id="filterBar" role="group" aria-label="Jump to a category"></div>
       </div>
+      <div class="grid" id="grid" aria-live="polite"></div>
+      <p class="fineprint wrap">All works are shown for viewing only and are not available to download. Client details and fees are blurred where needed.</p>
     </section>
 
+    
   </main>
 
   <!-- ============ CONTACT FOOTER ============ -->
@@ -275,9 +158,60 @@
     </div>
   </footer>
 
+  <!-- ============ CASE STUDY MODAL ============ -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="mTitle" tabindex="-1">
+      <button class="modal__close" type="button" data-close aria-label="Close case study">×</button>
+      <div class="modal__scroll" id="mScroll">
+
+        <div class="viewer protected" id="viewer">
+          <div class="viewer__main">
+            <button class="viewer__stage" id="vStage" type="button" aria-label="Enlarge image">
+              <img id="vImg" alt="" draggable="false">
+            </button>
+            <video class="viewer__video" id="vVideo" controls playsinline preload="metadata" controlslist="nodownload noremoteplayback" disablepictureinpicture disableremotePlayback hidden></video>
+            <button class="viewer__arrow viewer__arrow--prev" id="vPrev" type="button" aria-label="Previous image">‹</button>
+            <button class="viewer__arrow viewer__arrow--next" id="vNext" type="button" aria-label="Next image">›</button>
+            <span class="viewer__hint">Click to enlarge</span>
+            <span class="viewer__count" id="vCount"></span>
+          </div>
+          <div class="viewer__thumbs" id="vThumbs"></div>
+        </div>
+
+        <div class="modal__body">
+          <p class="project__cat" id="mCat"></p>
+          <h2 id="mTitle"></h2>
+          <p class="modal__intro" id="mIntro"></p>
+          <p class="note" id="mNote" hidden></p>
+          <aside class="why" id="mWhy" hidden></aside>
+          <div id="mSecs"></div>
+          <ul class="tags" id="mTools"></ul>
+          <nav class="modal__nav" aria-label="Case study navigation">
+            <button class="link" type="button" id="mPrev">← Previous project</button>
+            <button class="link" type="button" id="mNext">Next project →</button>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FULL-SCREEN IMAGE VIEWER ============ -->
+  <div class="lb protected" id="lb" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lb__close" id="lbClose" type="button" aria-label="Close image viewer">×</button>
+    <button class="lb__arrow lb__arrow--prev" id="lbPrev" type="button" aria-label="Previous image">‹</button>
+    <button class="lb__arrow lb__arrow--next" id="lbNext" type="button" aria-label="Next image">›</button>
+    <div class="lb__scroll" id="lbScroll">
+      <div class="lb__wrap" id="lbWrap"><img id="lbImg" alt="" draggable="false"></div>
+    </div>
+    <span class="lb__count" id="lbCount"></span>
+  </div>
+
+
   <script src="js/config.js"></script>
   <script src="js/works-data.js"></script>
   <script src="js/common.js"></script>
+  <script src="js/works.js"></script>
   <script src="js/home.js"></script>
 </body>
 </html>
